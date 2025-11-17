@@ -1,0 +1,162 @@
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo">
+        <img src="assets/logo/Imagotipo_Muni.svg" style="width: auto; height: auto;" alt="Municipalidad de Antigua Guatemala">
+        <div class="logo-text">
+        </div>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <h1 class="header-title">Mapa Dinámico de Proyectos y Parqueos</h1>
+    </div>
+
+    <div class="header-right">
+      <button class="menu-button" type="button">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="content">
+
+    <section class="hero-and-map">
+
+      <!-- HERO + PANEL DE FILTROS (IZQUIERDA) -->
+      <div class="hero-panel">
+        <div class="hero-text">
+          <h2 class="hero-title">
+            Visualiza los proyectos<br />
+            que transforman Antigua
+          </h2>
+          <p class="hero-subtitle">
+            Acceso rápido a información de parqueos, proyectos activos
+            y líneas de parqueo.
+          </p>
+
+          <button class="primary-button" type="button" (click)="centerOnInitialMarker()">
+            Explorar mapa en vivo
+          </button>
+        </div>
+
+        <div class="filter-card">
+          <div class="filter-card-header">
+            <div class="legend-item">
+              <span class="legend-dot legend-dot-projects"></span>
+              <span>Proyectos</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot legend-dot-muni-parking"></span>
+              <span>Parqueos Municipales</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot legend-dot-public-parking"></span>
+              <span>Parqueos Públicos</span>
+            </div>
+          </div>
+
+          <div class="filter-search">
+            <input
+              class="search-input"
+              type="text"
+              placeholder="Buscar..."
+            />
+          </div>
+
+          <div class="filter-list">
+            <div class="filter-item">
+              <div class="filter-icon filter-icon-project">
+                <span>🏗️</span>
+              </div>
+              <div class="filter-text">
+                <div class="filter-title">Proyecto Encinos</div>
+                <div class="filter-status success">Activo</div>
+                <div class="filter-progress">
+                  <div class="filter-progress-bar">
+                    <div class="filter-progress-fill" style="width: 60%"></div>
+                  </div>
+                  <span class="filter-progress-value">60%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-item">
+              <div class="filter-icon filter-icon-parking">
+                <span>🅿</span>
+              </div>
+              <div class="filter-text">
+                <div class="filter-title">Pavimentación 3a Calle</div>
+                <div class="filter-status warning">En proceso</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAPA + TARJETA DE DETALLE (DERECHA) -->
+      <div class="map-panel">
+        <div class="map-wrapper">
+          <!-- Contenedor físico del mapa Leaflet -->
+          <div id="map" class="map-container"></div>
+
+
+
+          <!-- Tarjeta de detalle tipo mockup -->
+          <div class="detail-card">
+            <div class="detail-header">
+              <div class="detail-icon">P</div>
+              <div>
+                <div class="detail-title">Parqueo Encinos</div>
+                <div class="detail-chip success">Disponible</div>
+              </div>
+            </div>
+
+            <div class="detail-stats">
+              <div class="detail-stat">
+                <div class="detail-stat-label">Carros</div>
+                <div class="detail-stat-value">12</div>
+              </div>
+              <div class="detail-stat">
+                <div class="detail-stat-label">Motos</div>
+                <div class="detail-stat-value">14</div>
+              </div>
+              <div class="detail-stat">
+                <div class="detail-stat-label">Avance</div>
+                <div class="detail-stat-value">60%</div>
+              </div>
+            </div>
+
+            <div class="detail-subproject">
+              <div class="detail-sub-title">Pavimentación 3a Calle</div>
+              <div class="detail-sub-status">En proceso</div>
+            </div>
+
+            <p class="detail-description">
+              Parqueo ubicado cerca del centro, con acceso a áreas comerciales
+              y turísticas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <div class="footer-left">
+      © Municipalidad de Antigua Guatemala
+    </div>
+    <div class="footer-right">
+      <a href="#" class="footer-link">Contacto</a>
+      <a href="#" class="footer-link">Términos y condiciones</a>
+    </div>
+  </footer>
+
+</div>
