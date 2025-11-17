@@ -4,16 +4,18 @@ import {
   OnDestroy
 } from '@angular/core';
 import * as L from 'leaflet';
+import { MatButton } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [],
+  imports: [MatIconModule, MatButton],
   templateUrl: './map.component.html',
   styleUrl: './map.component.css'
 })
 export class MapComponent implements AfterViewInit, OnDestroy {
-
+  ;
   // Coordenadas de Antigua (ejemplo)
   private readonly initialLat = 14.5586;
   private readonly initialLng = -90.7296;
