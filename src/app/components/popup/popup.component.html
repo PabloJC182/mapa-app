@@ -1,0 +1,25 @@
+<div class="popup-card">
+  <img class="main-img" [src]="data.mainImage" alt="">
+
+  <div class="thumbs">
+    <img *ngFor="let img of data.images" [src]="img" alt="">
+  </div>
+
+  <h2>{{ data.title }}</h2>
+
+  <p class="subtitle">Disponibilidad de espacios</p>
+
+  <p class="spaces">
+    <span class="cars">Carros: {{ data.cars }}</span>
+    <span class="motos">Motos: {{ data.motos }}</span>
+  </p>
+
+  <p class="update">Última actualización<br>{{ data.updatedAt }}</p>
+
+  <button class="go-btn" (click)="openMaps()">Ir al parqueo ahora</button>
+
+  <div class="btn-group">
+    <button class="btn" (click)="openWaze()">Waze</button>
+    <button class="btn" (click)="openGoogle()">Maps</button>
+  </div>
+</div>

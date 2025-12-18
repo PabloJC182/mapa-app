@@ -1,0 +1,80 @@
+<div class="admin-container">
+
+  <!-- HEADER -->
+  <header class="admin-header">
+    <div class="header-title">Panel de Administración</div>
+    <div class="header-subtitle">Gestión de Puntos y Líneas</div>
+  </header>
+
+  <div class="admin-content">
+
+    <!-- PANEL IZQUIERDO: FORMULARIOS DE ADMIN -->
+    <div class="editor-panel">
+
+      <h3 class="panel-title">Crear nuevo punto</h3>
+
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="newPoint.name" placeholder="Ej: Parqueo Encinos" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Latitud</label>
+          <input type="number" [(ngModel)]="newPoint.lat" />
+        </div>
+        <div class="form-group">
+          <label>Longitud</label>
+          <input type="number" [(ngModel)]="newPoint.lng" />
+        </div>
+      </div>
+
+      <button class="btn-primary" (click)="createPoint()">Guardar punto</button>
+
+      <hr />
+
+      <h3 class="panel-title">Crear nueva línea</h3>
+
+      <p class="helper-text">
+        Haz clic en el mapa para agregar puntos de la línea.
+      </p>
+
+      <div class="line-preview">
+        Puntos seleccionados: {{ newLinePoints.length }}
+      </div>
+
+      <button class="btn-primary" (click)="saveLine()">Guardar línea</button>
+
+      <hr />
+
+      <h3 class="panel-title">Listado actual</h3>
+
+      <div class="list-section">
+        <h4>Puntos existentes</h4>
+        <ul>
+          <li *ngFor="let p of points">
+            {{ p.name }}  
+            <button class="btn-delete" (click)="deletePoint(p)">X</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="list-section">
+        <h4>Líneas existentes</h4>
+        <ul>
+          <li *ngFor="let l of lines; let i = index">
+            Línea {{ i + 1 }} — {{ l.points.length }} puntos
+            <button class="btn-delete" (click)="deleteLine(i)">X</button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- MAPA -->
+    <div class="map-wrapper">
+      <div id="admin-map" class="map-container"></div>
+    </div>
+
+  </div>
+</div>

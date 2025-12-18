@@ -1,0 +1,24 @@
+.app-footer {
+  padding: 0.8rem 2.5rem;
+  background: #00335f;
+  color: #e3edff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.footer-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-link {
+  color: #e3edff;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.footer-link:hover {
+  opacity: 1;
+}

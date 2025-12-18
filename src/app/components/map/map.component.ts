@@ -4,13 +4,11 @@ import {
   OnDestroy
 } from '@angular/core';
 import * as L from 'leaflet';
-import { MatButton } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [MatIconModule, MatButton],
+  imports: [],
   templateUrl: './map.component.html',
   styleUrl: './map.component.css'
 })
@@ -20,7 +18,10 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   private readonly initialLat = 14.5586;
   private readonly initialLng = -90.7296;
   private readonly initialZoom = 15;
-
+  private readonly DrenajeSantaAnaLat = 14.548126;
+  private readonly DrenajeSantaAnaLng = -90.723977;
+  private readonly EscuelaSanMateoLat = 14.577813;
+  private readonly EscuelaSanMateoLng = -90.694745;
   private map!: L.Map;
   private markersLayer!: L.LayerGroup;
 
@@ -62,7 +63,8 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.markersLayer = L.layerGroup().addTo(this.map);
 
     // Marcador inicial (Parqueo Encinos)
-    this.addMarker(this.initialLat, this.initialLng, 'Parqueo Encinos');
+    this.addMarker(this.DrenajeSantaAnaLat, this.DrenajeSantaAnaLng, 'Mejoramiento de Drenaje en Santa Ana');
+    this.addMarker(this.EscuelaSanMateoLat, this.EscuelaSanMateoLng, 'Escuela de San Mateo Milpas Altas');
 
     // Evento click para obtener coordenadas
     this.map.on('click', (event: L.LeafletMouseEvent) => {
@@ -91,7 +93,8 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     const marker = L.marker([lat, lng], { icon });
 
     if (title) {
-      marker.bindPopup(`<strong>${title}</strong>`);
+      marker.bindPopup(`<strong>${title}</strong>\n <br>
+        Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}<br>`);
     }
 
     marker.addTo(this.markersLayer);
